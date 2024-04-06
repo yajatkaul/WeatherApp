@@ -71,3 +71,12 @@ body{
     font-size: 25px;
     margin: 0;
 }
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .card{
+      width: 1000px;
+    }
+    .cont{
+        height: 100vh;
+    }
+  }
