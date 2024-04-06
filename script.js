@@ -17,27 +17,27 @@ async function checkweather(city){
     document.querySelector(".percentage").innerHTML = data.main.humidity + "%";
     if(data.weather[0].main == "Clouds")
     {
-        image.src = "/clouds.png"
+        image.src = "/images/clouds.png"
     }
     else if(data.weather[0].main == "Snow")
     {
-        image.src = "/snow.png"
+        image.src = "/images/snow.png"
     }
     else if(data.weather[0].main == "Rain")
     {
-        image.src = "/rain.png"
+        image.src = "/images/rain.png"
     }
     else if(data.weather[0].main == "Clear")
     {
-        image.src = "/clear.png"
+        image.src = "/images/clear.png"
     }
     else if(data.weather[0].main == "Mist")
     {
-        image.src = "/mist.png"
+        image.src = "/images/mist.png"
     }
     else if(data.weather[0].main == "Drizzle")
     {
-        image.src = "/drizzle.png"
+        image.src = "/images/drizzle.png"
     }
 }
 
