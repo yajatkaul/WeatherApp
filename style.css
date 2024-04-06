@@ -40,6 +40,7 @@ body{
     align-items: center;
     flex-direction: column;
     text-align: center;
+    flex-wrap: wrap;
 }
 .cont{
     height: 100vh;
