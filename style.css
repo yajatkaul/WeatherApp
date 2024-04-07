@@ -59,10 +59,12 @@ body{
     height: 50px;
 }
 .details{
+    color: white;
     display: flex;
     padding-top: 100px;
 }
 .temp{
+    color: white;
     font-weight: bold;
     font-size: 50px;
     margin: 0;
