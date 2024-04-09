@@ -11,10 +11,10 @@ async function checkweather(city) {
     const data = await response.json();
 
     console.log(data);
-    document.querySelector(".name").innerHTML = data.name;
-    document.querySelector(".temp").innerHTML = data.main.temp + "°C";
-    document.querySelector(".speed").innerHTML = data.wind.speed + " km/h";
-    document.querySelector(".percentage").innerHTML = data.main.humidity + "%";
+    document.querySelector(".name").innerText = data.name;
+    document.querySelector(".temp").innerText = data.main.temp + "°C";
+    document.querySelector(".speed").innerText = data.wind.speed + " km/h";
+    document.querySelector(".percentage").innerText = data.main.humidity + "%";
     function getWeatherImage() {
         switch(data.weather[0].main) {
             case "Clouds":
