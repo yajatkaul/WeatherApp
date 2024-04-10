@@ -5,43 +5,39 @@ const image = document.querySelector(".weather-icon");
 
 
 
-async function checkweather(city){
+async function checkweather(city) {
     const apiurl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`;
     const response = await fetch(apiurl);
-    var data = await response.json();
+    const data = await response.json();
 
     console.log(data);
-    document.querySelector(".name").innerHTML = data.name;
-    document.querySelector(".temp").innerHTML = data.wind.deg + "°C";
-    document.querySelector(".speed").innerHTML = data.wind.speed + "km/h";
-    document.querySelector(".percentage").innerHTML = data.main.humidity + "%";
-    if(data.weather[0].main == "Clouds")
-    {
-        image.src = "images/clouds.png"
+    document.querySelector(".name").innerText = data.name;
+    document.querySelector(".temp").innerText = data.main.temp + "°C";
+    document.querySelector(".speed").innerText = data.wind.speed + " km/h";
+    document.querySelector(".percentage").innerText = data.main.humidity + "%";
+    function getWeatherImage() {
+        switch(data.weather[0].main) {
+            case "Clouds":
+                return "images/clouds.png";
+            case "Snow":
+                return "images/snow.png";
+            case "Rain":
+                return "images/rain.png";
+            case "Clear":
+                return "images/clear.png";
+            case "Mist":
+                return "images/mist.png";
+            case "Drizzle":
+                return "images/drizzle.png";
+            default:
+                return "images/clear.png";
+        }
     }
-    else if(data.weather[0].main == "Snow")
-    {
-        image.src = "images/snow.png"
-    }
-    else if(data.weather[0].main == "Rain")
-    {
-        image.src = "images/rain.png"
-    }
-    else if(data.weather[0].main == "Clear")
-    {
-        image.src = "images/clear.png"
-    }
-    else if(data.weather[0].main == "Mist")
-    {
-        image.src = "images/mist.png"
-    }
-    else if(data.weather[0].main == "Drizzle")
-    {
-        image.src = "images/drizzle.png"
-    }
+    image.src = getWeatherImage();
 }
 
-searchbtn.addEventListener("click", ()=>{
+searchbtn.addEventListener("click", () => {
+    if(!cityname.value) return;
     checkweather(cityname.value);
     cityname.value = "";
 });
