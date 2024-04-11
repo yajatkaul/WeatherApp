@@ -9,6 +9,15 @@ async function checkweather(city) {
     const apiurl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`;
     const response = await fetch(apiurl);
     const data = await response.json();
+    if(city === "Nandini" || city === "nandini")
+    {
+        document.querySelector(".name").innerText = "Nandini";
+        document.querySelector(".temp").innerText = "1000" + "°C";
+        document.querySelector(".speed").innerText = "948" + " km/h";
+        document.querySelector(".percentage").innerText = "100" + "%";
+        image.src = "images/clouds.png";
+        return;
+    }
 
     console.log(data);
     document.querySelector(".name").innerText = data.name;
@@ -40,5 +49,13 @@ searchbtn.addEventListener("click", () => {
     if(!cityname.value) return;
     checkweather(cityname.value);
     cityname.value = "";
+});
+cityname.addEventListener("keypress", (e) =>{
+    if(e.key === 'Enter')
+    {
+        if(!cityname.value) return;
+        checkweather(cityname.value);
+        cityname.value = "";
+    }
 });
 checkweather("berlin");
