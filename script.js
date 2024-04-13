@@ -9,7 +9,7 @@ async function checkweather(city) {
     const apiurl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`;
     const response = await fetch(apiurl);
     const data = await response.json();
-    if(city === "Nandini" || city === "nandini" || city === "NANDINI")
+    if(city.toLowerCase() === "nandini")
     {
         document.querySelector(".name").innerText = "Nandini";
         document.querySelector(".temp").innerText = "1000" + "°C";
